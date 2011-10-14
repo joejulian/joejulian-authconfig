@@ -1,0 +1,7 @@
+This directory should contain the pems and symlinks to those pems:
+
+lrwxrwxrwx 1 root root    9 Oct 14 11:20 4b444c99.0 -> ldap1.pem
+lrwxrwxrwx 1 root root    9 Oct 14 11:20 650738cc.0 -> ldap2.pem
+-rw-r--r-- 1 root root 2518 Nov 16  2010 ldap1.pem
+-rw-r--r-- 1 root root 2404 Nov 16  2010 ldap2.pem
+

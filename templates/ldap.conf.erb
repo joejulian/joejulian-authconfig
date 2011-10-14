@@ -1,0 +1,37 @@
+#
+# This file managed by puppet. Changes made to this file will be overwritten.
+#
+#class authconfig::ldap($suffix, 
+#    $rootbinddn, 
+#    $serverlist = "ldap://ldap1/", 
+#    $basepasswd = "ou=People,$base", 
+#    $baseshadow = "ou=People,$base", 
+#    $basegroup  = "ou=Group,$base", 
+#    $basehosts  = "ou=Hosts,$base", 
+#    $base) {
+
+DEREF		never
+scope sub
+timelimit 5
+bind_timelimit 5
+bind_policy soft
+pam_password md5
+
+ldap_version 3
+pam_filter objectclass=posixAccount
+pam_login_attribute uid
+pam_member_attribute memberuid
+
+tls_cacertdir /etc/openldap/cacerts
+ssl start_tls
+
+suffix "<%= base %>"
+rootbinddn <%= rootbinddn %>
+nss_base_passwd <%= basepasswd %>
+nss_base_shadow <%= baseshadow %>
+nss_base_group  <%= basegroup  %>
+nss_base_hosts  <%= basehosts  %>
+base <%= base %>
+BASE <%= base %>
+uri <% serverlist.each do |server| -%><%= server -%> <% end %>
+URI <% serverlist.each do |server| -%><%= server -%> <% end %>
