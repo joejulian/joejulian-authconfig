@@ -1,8 +1,8 @@
 name    'joejulian-authconfig'
-version '0.1.0'
-source ''
+version '0.1.1'
+source 'git@github.com:joejulian/joejulian-authconfig.git'
 author 'Joe Julian'
-license 'GPLv2'
+license 'GPLv2.1'
 summary 'A module for managing auth mechanisms on RedHat/Fedora based distros'
 description 'This module is used for managing the auth mechanisms on a RedHat/Fedora based distro.
 
@@ -25,4 +25,4 @@ class { authconfig::ldap:
 }
 '
     
-project_page 'UNKNOWN'
+project_page 'https://github.com/joejulian/joejulian-authconfig'
