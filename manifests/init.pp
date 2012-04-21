@@ -144,7 +144,7 @@ class authconfig (
     if $authconfig_enablekerberos != $enablekerberos {
         exec { "enablekerberos":
             command => $enablekerberos ? {
-                "true"  => "/usr/sbin/authconfig --update --enabekrb5",
+                "true"  => "/usr/sbin/authconfig --update --enablekrb5",
                 "false" => "/usr/sbin/authconfig --update --disablekrb5",
             },
         }
@@ -325,17 +325,17 @@ class authconfig (
     }
     if $authconfig_smbidmapgid != $smbidmapgid {
         exec { "smbidmapgid":
-            command => "/usr/sbin/authconfig --update --smbmapgid=${smbmapgid}",
+            command => "/usr/sbin/authconfig --update --smbidmapgid=${smbidmapgid}",
         }
     }
     if $authconfig_smbidmapuid != $smbidmapuid {
         exec { "smbidmapuid":
-            command => "/usr/sbin/authconfig --update --smbmapuid=${smbmapuid}",
+            command => "/usr/sbin/authconfig --update --smbidmapuid=${smbidmapuid}",
         }
     }
     if $authconfig_smbsecurity != $smbsecurity {
         exec { "smbsecurity":
-            command => "/usr/sbin/authconfig --update --${smbsecurity}",
+            command => "/usr/sbin/authconfig --update --smbsecurity=${smbsecurity}",
         }
     }
     if $authconfig_smbworkgroup != $smbworkgroup {
